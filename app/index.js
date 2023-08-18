@@ -1,20 +1,11 @@
 import { View, Text, StyleSheet, SafeAreaView } from "react-native";
-import PlanetCard from "./Components/planetCard";
-import Screen from "./Components/Screen";
 import WelcomeScreen from "./Screens/WelcomeScreen";
-import PlanetSelectScreen from "./Screens/PlanetSelectScreen";
-import PlanetList from "./Components/PlanetList";
-import colors from "./Config/colors";
-import CityCard from "./Components/CityCard";
-import CitySelectScreen from "./Screens/CitySelectScreen";
-import CityList from "./Components/CityList";
+import { Canvas } from "@react-three/fiber";
+import ShipContainer from "./Components/ShipContainer";
+import BookingDetailsScreen from "./Screens/BookingDetailsScreen";
 
 const Home = () => {
-  return (
-    <>
-      <CitySelectScreen planet="mercury" />
-    </>
-  );
+  return <BookingDetailsScreen ship="StarShip" />;
 };
 
 export default Home;
