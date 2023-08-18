@@ -3,7 +3,7 @@ import {
   ImageBackground,
   StyleSheet,
   Text,
-  TouchableWithoutFeedback,
+  TouchableOpacity,
   View,
   Image,
 } from "react-native";
@@ -62,7 +62,20 @@ export default function ShipContainer({ ship }) {
 
   return (
     <Canvas style={styles.container}>
-      <ambientLight intensity={2} />
+      <ambientLight intensity={0.5} />
+      <spotLight
+        position={[0.5, 3, 1]}
+        angle={2}
+        penumbra={1}
+        intensity={6}
+        color={colors.orange}
+      />
+      <spotLight
+        position={[0.5, 1, 0]}
+        angle={3.5}
+        penumbra={1}
+        intensity={6}
+      />
       <Suspense fallback={null}>
         <Ship
           ob={ships[ship].object}

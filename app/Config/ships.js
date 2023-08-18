@@ -12,7 +12,7 @@ export default {
     material: null,
     texture: require("../assets/ships/artemis/artemis.png"),
     background: require("../assets/ships/artemis/artemis_back.jpg"),
-    scaleFactor: 0.15,
-    y: 0.6,
+    scaleFactor: 0.25,
+    y: 1.3,
   },
 };

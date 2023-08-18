@@ -5,6 +5,7 @@ import ships from "../Config/ships";
 import colors from "../Config/colors";
 import BookingListItem from "../Components/BookingListItem";
 import useRGB from "./../hooks/useRGB";
+import { useState } from "react";
 
 function BookingDetailsScreen({
   ship,
@@ -36,12 +37,12 @@ function BookingDetailsScreen({
             marginBottom: 10,
           }}
         >
-          SpaceX
+          {company}
         </Text>
         <View style={{ flexDirection: "row" }}>
-          <BookingListItem left="location-enter" right={["Earth"]} />
+          <BookingListItem left="location-enter" right={[from]} />
 
-          <BookingListItem left="location-exit" right={["Jupiter"]} />
+          <BookingListItem left="location-exit" right={[to]} />
         </View>
 
         {stops && (
@@ -55,8 +56,8 @@ function BookingDetailsScreen({
             Stops
           </Text>
         )}
-        <BookingListItem left="calendar-month" right={["2100/05/10"]} />
-        <BookingListItem left="clock-outline" right={["7:30 pm"]} />
+        <BookingListItem left="calendar-month" right={[date]} />
+        <BookingListItem left="clock-outline" right={[time]} />
         <View style={{ alignItems: "center", marginTop: 5, marginBottom: 5 }}>
           <Text style={{ fontSize: 20, marginBottom: 5, color: colors.white }}>
             Select Class
