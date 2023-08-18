@@ -8,11 +8,12 @@ function BookingListItem({
   left,
   right,
   bgColor = useRGB(colors.backgroundDark1, 0.6),
+  onPress = () => {},
 }) {
   return (
     <View style={{ flexDirection: "row", margin: 5 }}>
       {right.map((item, index) => (
-        <TouchableOpacity>
+        <TouchableOpacity onPress={onPress}>
           <View
             key={index}
             style={{

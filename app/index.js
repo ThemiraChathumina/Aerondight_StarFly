@@ -3,18 +3,10 @@ import WelcomeScreen from "./Screens/WelcomeScreen";
 import { Canvas } from "@react-three/fiber";
 import ShipContainer from "./Components/ShipContainer";
 import BookingDetailsScreen from "./Screens/BookingDetailsScreen";
+import SeatSelectScreen from "./Screens/SeatSelectScreen";
 
 const Home = () => {
-  return (
-    <BookingDetailsScreen
-      ship="StarShip"
-      company="SpaceX"
-      date="10/05/2099"
-      time="7:30 pm"
-      from="Earth"
-      to="Jupiter"
-    />
-  );
+  return <SeatSelectScreen ship={"StarShip"} bookedSeats={[1, 2, 3]} />;
 };
 
 export default Home;
