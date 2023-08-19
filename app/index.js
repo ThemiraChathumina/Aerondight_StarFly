@@ -8,9 +8,12 @@ import Button from "./Components/Button";
 import HomeScreen from "./Screens/HomeScreen";
 import ChatbotLeft from "./Components/ChatbotLeft";
 import { OptionRight } from "./Components/OptionRight";
+import Promotions from "./Components/Promotion";
+import SlideComponent from "./Components/SlideComponent";
+import DetailList from "./Components/flat-list";
 
 const Home = () => {
-  return <WelcomeScreen />;
+  return <HomeScreen />;
 };
 
 export default Home;

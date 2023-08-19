@@ -2,6 +2,7 @@ import React from "react";
 import { View, Text, StyleSheet, SafeAreaView } from "react-native";
 import HomeBackground from "../Components/HomeBackground";
 import Button from "../Components/Button";
+import Promotions from "../Components/Promotion";
 
 function HomeScreen(props) {
   return (
@@ -12,6 +13,7 @@ function HomeScreen(props) {
             <Button style={styles.button}>Booking</Button>
             <Button>Destination</Button>
           </View>
+          <Promotions />
         </View>
       </HomeBackground>
     </View>
