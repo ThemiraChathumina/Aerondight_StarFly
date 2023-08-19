@@ -12,9 +12,10 @@ import Promotions from "./Components/Promotion";
 import SlideComponent from "./Components/SlideComponent";
 import DetailList from "./Components/flat-list";
 import homeData from "./Config/homeData";
+import BookingDetails from "./Screens/BookingDetails";
 
 const Home = () => {
-  return <HomeScreen />;
+  return <WelcomeScreen />;
 };
 
 export default Home;

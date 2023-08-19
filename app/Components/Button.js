@@ -4,9 +4,9 @@ import { TouchableOpacity } from "react-native-gesture-handler";
 import colors from "../Config/colors";
 import useRGB from "../hooks/useRGB";
 
-const Button = ({ children }) => {
+const Button = ({ children, onPress }) => {
   return (
-    <TouchableOpacity onPress={() => {}}>
+    <TouchableOpacity onPress={onPress}>
       <Pressable style={styles.btnStyle}>
         <Text style={styles.textStyle}>{children}</Text>
       </Pressable>
