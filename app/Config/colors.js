@@ -23,4 +23,6 @@ export default {
 
   yellow: "ffcf5c",
   orange: "#ffa26b",
+
+  lightPink: "#FF647C",
 };
