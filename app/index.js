@@ -10,8 +10,7 @@ import ChatbotLeft from "./Components/ChatbotLeft";
 import { OptionRight } from "./Components/OptionRight";
 
 const Home = () => {
-  return <OptionRight label={"hehe"} />;
-
+  return <WelcomeScreen />;
 };
 
 export default Home;

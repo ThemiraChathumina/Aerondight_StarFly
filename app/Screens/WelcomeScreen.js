@@ -5,8 +5,15 @@ import useRGB from "../hooks/useRGB";
 import ImageBackgroundScreen from "../Components/ImageBackgroundScreen";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import AppTextInput from "../Components/AppTextInput";
+import { useRouter } from "expo-router";
 
 const WelcomeScreen = () => {
+  const router = useRouter();
+
+  const handleLogIn = () => {
+    router.replace("/Screens/HomeScreen");
+  };
+
   return (
     <ImageBackgroundScreen
       style={styles.imageBackground}
@@ -32,7 +39,7 @@ const WelcomeScreen = () => {
               style={{ width: 230, color: colors.white }}
             />
 
-            <TouchableOpacity onPress={() => {}}>
+            <TouchableOpacity onPress={handleLogIn}>
               <View
                 style={{
                   borderWidth: 1,
@@ -84,7 +91,7 @@ const WelcomeScreen = () => {
                     padding: 10,
                   }}
                 >
-                  <TouchableOpacity onPress={() => {}}>
+                  <TouchableOpacity onPress={handleLogIn}>
                     <MaterialCommunityIcons
                       name="fingerprint"
                       size={50}
@@ -92,7 +99,7 @@ const WelcomeScreen = () => {
                     />
                   </TouchableOpacity>
 
-                  <TouchableOpacity onPress={() => {}}>
+                  <TouchableOpacity onPress={handleLogIn}>
                     <MaterialCommunityIcons
                       name="eye"
                       size={50}
@@ -113,7 +120,7 @@ const WelcomeScreen = () => {
                 <Text style={{ color: colors.white, marginBottom: 5 }}>
                   login as a guest
                 </Text>
-                <TouchableOpacity onPress={() => {}}>
+                <TouchableOpacity onPress={handleLogIn}>
                   <MaterialCommunityIcons
                     name="login"
                     size={70}
