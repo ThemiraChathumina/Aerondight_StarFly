@@ -13,7 +13,7 @@ import ProfileScreen from "./Screens/ProfileScreen";
 const Home = () => {
   return (
     <>
-      <CitySelectScreen planet="mercury" />
+      <ProfileScreen />
     </>
   );
 };

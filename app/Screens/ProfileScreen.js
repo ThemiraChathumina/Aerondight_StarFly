@@ -1,46 +1,17 @@
-import React, { useState, useRef } from "react";
-import {
-  View,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  Animated,
-} from "react-native";
+import React, { useRef } from "react";
+import { StyleSheet, Animated } from "react-native";
 import ProfileImage from "../Components/ProfileImage";
 import ProfileDetailsList from "../Components/ProfileDetailsList";
 import PaymentMethod from "../Components/PaymentMethods";
 import ImageBackgroundScreen from "../Components/ImageBackgroundScreen";
 
 const ProfileScreen = () => {
-  const [profileDetails, setProfileDetails] = useState({
-    userName: "",
-    citizenship: "",
-    email: "",
-    phone: "",
-    dateOfBirth: "",
-    gender: "",
-    language: "",
-  });
-  const [paymentMethods, setPaymentMethod] = useState({
-    cardNumber: "",
-    cardType: "",
-    expDate: "",
-  });
-
   const scrollY = useRef(new Animated.Value(0)).current;
   const imageHeight = scrollY.interpolate({
-    inputRange: [0, 100],
-    outputRange: [200, 150],
+    inputRange: [0, 50],
+    outputRange: [300, 220],
     extrapolate: "clamp",
   });
-
-  const onSaveProfileDetails = () => {
-    console.log("Profile details saved:", profileDetails);
-  };
-
-  const onSavePaymentMethods = () => {
-    console.log("Payment Method saved:", paymentMethods);
-  };
 
   return (
     <ImageBackgroundScreen src={require("../assets/welcomeBackground.jpg")}>
@@ -59,37 +30,11 @@ const ProfileScreen = () => {
         </Animated.View>
 
         <Animated.View style={styles.container}>
-          <Text style={styles.headerText}> Profile Details </Text>
-          <ProfileDetailsList
-            profileDetails={profileDetails}
-            setProfileDetails={setProfileDetails}
-          />
-
-          <View style={styles.fixedButtonContainer}>
-            <TouchableOpacity
-              style={styles.saveButton}
-              onPress={onSaveProfileDetails}
-            >
-              <Text style={styles.buttonText}>Save</Text>
-            </TouchableOpacity>
-          </View>
+          <ProfileDetailsList />
         </Animated.View>
 
         <Animated.View style={styles.container}>
-          <Text style={styles.headerText}> Payment Methods </Text>
-          <PaymentMethod
-            paymentMethods={paymentMethods}
-            setPaymentMethod={setPaymentMethod}
-          />
-
-          <View style={styles.fixedButtonContainer}>
-            <TouchableOpacity
-              style={styles.saveButton}
-              onPress={onSavePaymentMethods}
-            >
-              <Text style={styles.buttonText}>Save</Text>
-            </TouchableOpacity>
-          </View>
+          <PaymentMethod />
         </Animated.View>
       </Animated.ScrollView>
     </ImageBackgroundScreen>
