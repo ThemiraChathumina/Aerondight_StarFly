@@ -8,6 +8,7 @@ import colors from "./Config/colors";
 import CityCard from "./Components/CityCard";
 import CitySelectScreen from "./Screens/CitySelectScreen";
 import CityList from "./Components/CityList";
+import ProfileScreen from "./Screens/ProfileScreen";
 
 const Home = () => {
   return (
