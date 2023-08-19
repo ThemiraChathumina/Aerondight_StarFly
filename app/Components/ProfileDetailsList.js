@@ -10,15 +10,20 @@ import {
 import colors from "../Config/colors";
 import useRGB from "../hooks/useRGB";
 import AppTextInput from "../Components/AppTextInput";
+import personalDetails from "../Config/personalDetails";
 
 const ProfileDetailsList = () => {
-  const [username, setUsername] = useState("");
-  const [citizenship, setCitizenship] = useState("");
-  const [email, setEmail] = useState("");
-  const [phone, setPhone] = useState("");
-  const [dateOfBirth, setDateOfBirth] = useState("");
-  const [gender, setGender] = useState("");
-  const [language, setLanguage] = useState("");
+  const [username, setUsername] = useState(personalDetails.User.userName);
+  const [citizenship, setCitizenship] = useState(
+    personalDetails.User.citizenship
+  );
+  const [email, setEmail] = useState(personalDetails.User.email);
+  const [phone, setPhone] = useState(personalDetails.User.phone);
+  const [dateOfBirth, setDateOfBirth] = useState(
+    personalDetails.User.dateOfBirth
+  );
+  const [gender, setGender] = useState(personalDetails.User.gender);
+  const [language, setLanguage] = useState(personalDetails.User.language);
 
   const onSave = () => {
     const details = {
@@ -42,49 +47,49 @@ const ProfileDetailsList = () => {
         <View style={styles.container}>
           <AppTextInput
             icon="account"
-            placeholder="Username"
+            placeholder={personalDetails.User.userName}
             value={username}
             onChangeText={setUsername}
             style={{ width: "100%", color: colors.white }}
           />
           <AppTextInput
             icon="card-account-details"
-            placeholder="Citizenship"
+            placeholder={personalDetails.User.citizenship}
             value={citizenship}
             onChangeText={setCitizenship}
             style={{ width: "100%", color: colors.white }}
           />
           <AppTextInput
             icon="email"
-            placeholder="Email Address"
+            placeholder={personalDetails.User.email}
             value={email}
             onChangeText={setEmail}
             style={{ width: "100%", color: colors.white }}
           />
           <AppTextInput
             icon="phone"
-            placeholder="Phone"
+            placeholder={personalDetails.User.phone}
             value={phone}
             onChangeText={setPhone}
             style={{ width: "100%", color: colors.white }}
           />
           <AppTextInput
             icon="calendar"
-            placeholder="Date of Birth"
+            placeholder={personalDetails.User.dateOfBirth}
             value={dateOfBirth}
             onChangeText={setDateOfBirth}
             style={{ width: "100%", color: colors.white }}
           />
           <AppTextInput
             icon="gender-male-female"
-            placeholder="Gender"
+            placeholder={personalDetails.User.gender}
             value={gender}
             onChangeText={setGender}
             style={{ width: "100%", color: colors.white }}
           />
           <AppTextInput
             icon="earth"
-            placeholder="Language"
+            placeholder={personalDetails.User.language}
             value={language}
             onChangeText={setLanguage}
             style={{ width: "100%", color: colors.white }}

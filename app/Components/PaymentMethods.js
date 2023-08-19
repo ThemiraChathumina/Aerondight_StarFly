@@ -1,21 +1,40 @@
 import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity } from "react-native";
+//import { AsyncStorage } from "react-native";
 import colors from "../Config/colors";
 import useRGB from "../hooks/useRGB";
 import AppTextInput from "../Components/AppTextInput";
-
+import personalDetails from "../Config/personalDetails";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 const PaymentMethods = () => {
-  const [cardNumber, setCardNumber] = useState("");
-  const [cardType, setCardType] = useState("");
-  const [expDate, setExpDate] = useState("");
+  const [cardNumber, setCardNumber] = useState(
+    personalDetails.AccDetails.cardNumber
+  );
+  const [cardType, setCardType] = useState(personalDetails.AccDetails.cardType);
+  const [expDate, setExpDate] = useState(personalDetails.AccDetails.expDate);
 
-  const onSave = () => {
-    const paymentInfo = {
-      cardNumber,
-      cardType,
-      expDate,
+  const onSave = async () => {
+    const updatedPersonalDetails = {
+      ...personalDetails,
+      AccDetails: {
+        cardNumber,
+        cardType,
+        expDate,
+      },
     };
-    console.log("Payment Info saved:", paymentInfo);
+
+    try {
+      await AsyncStorage.setItem(
+        "personalDetails",
+        JSON.stringify(updatedPersonalDetails)
+      );
+      console.log("Payment Info saved:", updatedPersonalDetails);
+      personalDetails.AccDetails.cardNumber = cardNumber;
+      personalDetails.AccDetails.cardType = cardType;
+      personalDetails.AccDetails.expDate = expDate;
+    } catch (error) {
+      console.error("Error saving payment info:", error);
+    }
   };
 
   return (
@@ -27,21 +46,21 @@ const PaymentMethods = () => {
         <View style={styles.container}>
           <AppTextInput
             icon="calculator"
-            placeholder="Card Number"
+            placeholder={personalDetails.AccDetails.cardNumber}
             value={cardNumber}
             onChangeText={setCardNumber}
             style={{ width: "100%", color: colors.white }}
           />
           <AppTextInput
             icon="credit-card"
-            placeholder="Card Type"
+            placeholder={personalDetails.AccDetails.cardType}
             value={cardType}
             onChangeText={setCardType}
             style={{ width: "100%", color: colors.white }}
           />
           <AppTextInput
             icon="calendar"
-            placeholder="Exp Date"
+            placeholder={personalDetails.AccDetails.expDate}
             value={expDate}
             onChangeText={setExpDate}
             style={{ width: "100%", color: colors.white }}
