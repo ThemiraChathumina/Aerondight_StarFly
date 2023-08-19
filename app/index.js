@@ -11,6 +11,7 @@ import { OptionRight } from "./Components/OptionRight";
 import Promotions from "./Components/Promotion";
 import SlideComponent from "./Components/SlideComponent";
 import DetailList from "./Components/flat-list";
+import homeData from "./Config/homeData";
 
 const Home = () => {
   return <HomeScreen />;
