@@ -650,6 +650,7 @@ import BookingDetailsScreen from "./BookingDetailsScreen";
 import { router } from "expo-router";
 import colors from "../Config/colors";
 import useRGB from "../hooks/useRGB";
+import personalDetails from "../Config/personalDetails";
 //===============================================================================================================================
 const Select = (props) => {
   return (
@@ -1185,8 +1186,7 @@ const BookingChat = (props) => {
         <View style={styles3.background}>
           <View style={styles3.button}>
             <Text style={styles3.text}>
-              Hi User.
-              {"\n"}
+              Hi {personalDetails.User.userName}.{"\n"}
               From where would you like to start your journey?
             </Text>
           </View>
@@ -1541,7 +1541,7 @@ const BookingChat = (props) => {
                       style={SelectAnsStyles.container1}
                       onPress={handleSixthButtonPress}
                     >
-                      <Text style={SelectAnsStyles.text}>Enter Details</Text>
+                      <Text style={SelectAnsStyles.text}>{personalDetails.AccDetails.cardNumber}</Text>
                     </Pressable>
                   </>
                 )}

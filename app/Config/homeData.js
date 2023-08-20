@@ -1,3 +1,7 @@
+import colors from "./colors";
+import useRGB from "../hooks/useRGB";
+import planetColors from "./planetColors";
+
 const details1 = {
   circle: {
     color: "yellow",
@@ -5,43 +9,43 @@ const details1 = {
   },
 
   section1: {
-    text: "text 1",
+    text: "Venus",
     textColor: "black",
-    bgColor: "red",
+    bgColor: colors.orange,
   },
 
   section2: {
-    text: "text 2",
+    text: "Mars",
     textColor: "white",
-    bgColor: "black",
+    bgColor: colors.red,
   },
 
   section3: {
-    text: "text 3",
+    text: "Artemis",
     textColor: "white",
     bgColor: "orange",
   },
 };
 const details2 = {
   circle: {
-    color: "yellow",
-    imageSource: require("../assets/planets/venus.jpg"),
+    color: colors.lightBlue3,
+    imageSource: require("../assets/planets/earth.jpg"),
   },
 
   section1: {
-    text: "text 4",
+    text: "Earth",
     textColor: "black",
-    bgColor: "red",
+    bgColor: colors.blue1,
   },
 
   section2: {
-    text: "text 2",
+    text: "Jupiter",
     textColor: "white",
-    bgColor: "black",
+    bgColor: colors.lightBrown,
   },
 
   section3: {
-    text: "text 3",
+    text: "StarShip",
     textColor: "white",
     bgColor: "orange",
   },
@@ -49,23 +53,23 @@ const details2 = {
 const details3 = {
   circle: {
     color: "yellow",
-    imageSource: require("../assets/planets/venus.jpg"),
+    imageSource: require("../assets/planets/pluto.jpg"),
   },
 
   section1: {
-    text: "text 7",
+    text: "Pluto",
     textColor: "black",
-    bgColor: "red",
+    bgColor: colors.purple2,
   },
 
   section2: {
-    text: "text 2",
+    text: "Saturn",
     textColor: "white",
-    bgColor: "black",
+    bgColor: colors.lightBrown,
   },
 
   section3: {
-    text: "text 3",
+    text: "StarShip",
     textColor: "white",
     bgColor: "orange",
   },
@@ -77,19 +81,19 @@ const details4 = {
   },
 
   section1: {
-    text: "text 7",
+    text: "Mars",
     textColor: "black",
     bgColor: "red",
   },
 
   section2: {
-    text: "text 2",
+    text: "Earth",
     textColor: "white",
-    bgColor: "black",
+    bgColor: colors.blue1,
   },
 
   section3: {
-    text: "text 3",
+    text: "Artemis",
     textColor: "white",
     bgColor: "orange",
   },

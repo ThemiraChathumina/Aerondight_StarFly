@@ -22,6 +22,8 @@ import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { getData, postData } from "./Config/api";
 import BookingInitial from "./Screens/BookingInitial";
 import BottomNavBar from "./Components/BottomNavBar";
+import ProfileScreen from "./Screens/ProfileScreen";
+import PaymentScreen from "./Components/Payment";
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -84,7 +86,7 @@ const Home = () => {
     // </Button>
     // <Payment />
     // <SlideComponent />
-    <BottomNavBar />
+    <WelcomeScreen />
     // <Tab.Navigator screenOptions={{ headerShown: false }}>
     //   <Tab.Screen name="Home" component={BookingInitial} />
     //   <Tab.Screen name="Settings" component={BookingChat} />

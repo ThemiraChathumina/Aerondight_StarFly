@@ -2,7 +2,11 @@ import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import { Image } from "react-native";
+import { Image, View } from "react-native";
+import colors from "../Config/colors";
+import Logo from "../Components/Logo";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Menu from "../Components/Menu";
 
 // Screens
 
@@ -10,6 +14,7 @@ import { Image } from "react-native";
 // import BookingChat from '../Screens/BookingChat';
 import BookingInitial from "../Screens/BookingInitial";
 import BookingChat from "../Screens/BookingChat";
+import ProfileScreen from "../Screens/ProfileScreen";
 //import AccountScreen from './dummy_Screens/AccountSceen';
 // import BookingInitial from "./../Documents/rootcode/frontend/StarFly/app/Screens/BookingInitial";
 // import BookingInitial from "./../Screens/BookingInitial";
@@ -20,6 +25,33 @@ const ChatbotName = "Chatbot";
 const AccountName = "Account";
 
 const Tab = createBottomTabNavigator();
+
+const Stack = createNativeStackNavigator();
+
+const ProfileStack = () => (
+  <Stack.Navigator
+    screenOptions={{
+      headerStyle: {
+        backgroundColor: colors.backgroundDark1,
+      },
+      headerTitleAlign: "center",
+      headerTintColor: "#fff",
+      headerTitleStyle: {
+        fontWeight: "bold",
+      },
+    }}
+  >
+    <Stack.Screen
+      options={{
+        headerTitle: "P R O F I L E",
+        headerLeft: () => <Logo />,
+        headerRight: () => <Menu />,
+      }}
+      name="AccountName"
+      component={ProfileScreen}
+    />
+  </Stack.Navigator>
+);
 
 function BottomNavBar() {
   return (
@@ -67,12 +99,52 @@ function BottomNavBar() {
       <Tab.Screen
         name={ChatbotName}
         component={BookingChat}
-        options={{ headerShown: false }}
+        options={{
+          headerShown: true,
+          headerStyle: {
+            backgroundColor: colors.backgroundDark1,
+          },
+          headerLeft: () => (
+            <View style={{ marginLeft: 16 }}>
+              <Logo />
+            </View>
+          ),
+          headerRight: () => (
+            <View style={{ marginRight: 16 }}>
+              <Menu />
+            </View>
+          ),
+          headerTitleAlign: "center",
+          headerTintColor: "#fff",
+          headerTitleStyle: {
+            fontWeight: "bold",
+          },
+        }}
       />
       <Tab.Screen
         name={AccountName}
-        component={BookingChat}
-        options={{ headerShown: false }}
+        component={ProfileStack}
+        options={{
+          headerShown: true,
+          headerStyle: {
+            backgroundColor: colors.backgroundDark1,
+          },
+          headerLeft: () => (
+            <View style={{ marginLeft: 16 }}>
+              <Logo />
+            </View>
+          ),
+          headerRight: () => (
+            <View style={{ marginRight: 16 }}>
+              <Menu />
+            </View>
+          ),
+          headerTitleAlign: "center",
+          headerTintColor: "#fff",
+          headerTitleStyle: {
+            fontWeight: "bold",
+          },
+        }}
       />
     </Tab.Navigator>
   );

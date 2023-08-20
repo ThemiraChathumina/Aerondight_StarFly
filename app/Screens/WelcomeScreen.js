@@ -11,7 +11,7 @@ const WelcomeScreen = () => {
   const router = useRouter();
 
   const handleLogIn = () => {
-    router.replace("/Screens/HomeScreen");
+    router.replace("/Components/BottomNavBar");
   };
 
   return (
@@ -28,7 +28,7 @@ const WelcomeScreen = () => {
         </View>
         <View style={styles.loginContainer}>
           <View style={styles.signIn}>
-            <AppTextInput
+            {/* <AppTextInput
               icon="account"
               placeholder="Username"
               style={{ width: 230, color: colors.white }}
@@ -37,9 +37,9 @@ const WelcomeScreen = () => {
               icon="lock"
               placeholder="Password"
               style={{ width: 230, color: colors.white }}
-            />
+            /> */}
 
-            <TouchableOpacity onPress={handleLogIn}>
+            <TouchableOpacity>
               <View
                 style={{
                   borderWidth: 1,
@@ -64,9 +64,9 @@ const WelcomeScreen = () => {
             <View
               style={{
                 flexDirection: "row",
-                justifyContent: "space-between",
+                justifyContent: "center",
                 alignItems: "center",
-                width: 300,
+                width: 180,
                 marginTop: 30,
               }}
             >
@@ -77,9 +77,9 @@ const WelcomeScreen = () => {
                   justifyContent: "center",
                 }}
               >
-                <Text style={{ color: colors.white, marginBottom: 5 }}>
+                {/* <Text style={{ color: colors.white, marginBottom: 5 }}>
                   or Sign Up using..
-                </Text>
+                </Text> */}
                 <View
                   style={{
                     flexDirection: "row",
@@ -110,7 +110,7 @@ const WelcomeScreen = () => {
                 </View>
               </View>
 
-              <View
+              {/* <View
                 style={{
                   flexDirection: "column",
                   alignItems: "center",
@@ -128,7 +128,7 @@ const WelcomeScreen = () => {
                     style={styles.icon}
                   />
                 </TouchableOpacity>
-              </View>
+              </View> */}
             </View>
           </View>
         </View>
@@ -184,6 +184,7 @@ const styles = StyleSheet.create({
   },
   signIn: {
     backgroundColor: useRGB(colors.backgroundDark1, 0.6),
+    width: "50%",
     alignItems: "center",
     justifyContent: "center",
     padding: 20,
