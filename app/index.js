@@ -20,6 +20,8 @@ import { useState, useEffect } from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { getData, postData } from "./Config/api";
+import BookingInitial from "./Screens/BookingInitial";
+import BottomNavBar from "./Components/BottomNavBar";
 
 const Home = () => {
   const [data, setData] = useState([]);
@@ -78,12 +80,13 @@ const Home = () => {
     //   <Button title="Post Data" onPress={handlePost} />
     //   <Text>{response}</Text>
     // </View>
-    <BookingChat />
+    // <BookingChat />
     // </Button>
     // <Payment />
     // <SlideComponent />
+    <BottomNavBar />
     // <Tab.Navigator screenOptions={{ headerShown: false }}>
-    //   <Tab.Screen name="Home" component={HomeScreen} />
+    //   <Tab.Screen name="Home" component={BookingInitial} />
     //   <Tab.Screen name="Settings" component={BookingChat} />
     // </Tab.Navigator>
   );

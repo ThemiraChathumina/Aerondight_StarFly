@@ -7,11 +7,12 @@ import homeData from "../Config/homeData";
 import DetailList from "../Components/flat-list";
 import { useRouter } from "expo-router";
 
-function HomeScreen(props) {
+function HomeScreen({ navigation }) {
   const router = useRouter();
 
   const handlePress = () => {
-    router.push("/Screens/BookingDetails");
+    // router.push("/Screens/BookingDetails");
+    navigation.navigate("BookingDetails");
   };
 
   return (
@@ -41,7 +42,7 @@ function HomeScreen(props) {
 
 const styles = StyleSheet.create({
   container: {
-     flex: 1,
+    flex: 1,
   },
   contentContainer: {
     flex: 1,

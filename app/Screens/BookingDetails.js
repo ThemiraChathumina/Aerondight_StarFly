@@ -107,9 +107,10 @@ import {
 import BookingDetailsItem from "../Components/BookingDetailsItem";
 import useRGB from "../hooks/useRGB";
 import colors from "../Config/colors";
+import { useRouter } from "expo-router";
 // import { TouchableOpacity } from "react-native-gesture-handler";
 
-const BookingDetails = () => {
+const BookingDetails = ({ navigation }) => {
   const [showBookingHistory, setShowBookingHistory] = useState(false);
   const [showCurrentBookings, setShowCurrentBookings] = useState(true);
 
@@ -120,6 +121,8 @@ const BookingDetails = () => {
   const toggleCurrentBookings = () => {
     setShowCurrentBookings(!showCurrentBookings);
   };
+
+  const router = useRouter();
 
   const yourBookingDetails = {
     id: "booking-id",
@@ -153,20 +156,20 @@ const BookingDetails = () => {
           alignItems: "center",
         }}
       >
-        <TouchableOpacity>
-            <View
-              style={{
-                backgroundColor: colors.lightPink,
-                padding: 20,
-                borderRadius: 40,
-                marginTop:20
-              }}
-            >
-              <Text style={{ color: colors.white, fontSize: 20, }}>
-                New Booking
-              </Text>
-            </View>
-          </TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate("BookingChat")}>
+          <View
+            style={{
+              backgroundColor: colors.lightPink,
+              padding: 20,
+              borderRadius: 40,
+              marginTop: 20,
+            }}
+          >
+            <Text style={{ color: colors.white, fontSize: 20 }}>
+              New Booking
+            </Text>
+          </View>
+        </TouchableOpacity>
         <View style={{ width: "100%" }}>
           <BookingDetailsItem
             name="Booking History"

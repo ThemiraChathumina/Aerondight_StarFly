@@ -1,13 +1,18 @@
-import { Stack } from "expo-router";
-import colors from "./Config/colors";
-import Logo from "./Components/Logo";
-import Menu from "./Components/Menu";
+import BookingDetails from "./BookingDetails";
+import BookingChat from "./BookingChat";
+import HomeScreen from "./HomeScreen";
+import React from "react";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import colors from "../Config/colors";
+import Logo from "../Components/Logo";
+import Menu from "../Components/Menu";
 
-const Layout = () => {
+const Stack = createNativeStackNavigator();
+
+function BookingInitial(props) {
   return (
-    <Stack
+    <Stack.Navigator
       screenOptions={{
-        headerShown: false,
         headerStyle: {
           backgroundColor: colors.backgroundDark1,
         },
@@ -19,31 +24,34 @@ const Layout = () => {
       }}
     >
       <Stack.Screen
-        name="Screens/HomeScreen"
         options={{
           headerTitle: "H O M E",
           headerLeft: () => <Logo />,
           headerRight: () => <Menu />,
         }}
+        name="HomeScreen"
+        component={HomeScreen}
       />
       <Stack.Screen
-        name="Screens/BookingDetails"
         options={{
           headerTitle: "B O O K I N G",
           headerLeft: () => <Logo />,
           headerRight: () => <Menu />,
         }}
+        name="BookingDetails"
+        component={BookingDetails}
       />
       <Stack.Screen
-        name="Screens/BookingChat"
         options={{
           headerTitle: "B O O K I N G",
           headerLeft: () => <Logo />,
           headerRight: () => <Menu />,
         }}
+        name="BookingChat"
+        component={BookingChat}
       />
-    </Stack>
+    </Stack.Navigator>
   );
-};
+}
 
-export default Layout;
+export default BookingInitial;

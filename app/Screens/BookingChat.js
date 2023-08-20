@@ -1492,6 +1492,14 @@ const BookingChat = (props) => {
                   <>
                     <Text></Text>
                     <Text></Text>
+                    <Text></Text>
+                    <Text></Text>
+                    <Text></Text>
+                    <Text></Text>
+                    <Text></Text>
+                    <Text></Text>
+                    <Text></Text>
+                    <Text></Text>
                     <Text style={HeadingStyle.container}> Payment</Text>
                     <View style={BoxStyles.container}>
                       <View style={BoxStyles.leftSide}>
