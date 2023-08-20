@@ -1,3 +1,6 @@
+DB DUMP IS ALSO IN HERE
+
+
 For starting the app,
 
 1. Install expo go app on mobile device.
