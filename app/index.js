@@ -1,10 +1,10 @@
-import { View, Text, StyleSheet, SafeAreaView } from "react-native";
+import { View, Text, StyleSheet, SafeAreaView, Button } from "react-native";
 import WelcomeScreen from "./Screens/WelcomeScreen";
 import { Canvas } from "@react-three/fiber";
 import ShipContainer from "./Components/ShipContainer";
 import BookingDetailsScreen from "./Screens/BookingDetailsScreen";
 import SeatSelectScreen from "./Screens/SeatSelectScreen";
-import Button from "./Components/Button";
+// import Button from "./Components/Button";
 import HomeScreen from "./Screens/HomeScreen";
 import ChatbotLeft from "./Components/ChatbotLeft";
 import { OptionRight } from "./Components/OptionRight";
@@ -15,8 +15,54 @@ import homeData from "./Config/homeData";
 import BookingDetails from "./Screens/BookingDetails";
 import BookingChat from "./Screens/BookingChat";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import Payment from "./Components/Payment";
+import { useState, useEffect } from "react";
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { getData, postData } from "./Config/api";
 
 const Home = () => {
+  const [data, setData] = useState([]);
+
+  const [response, setResponse] = useState("");
+
+  const handlePost = async () => {
+    const apiUrl = "http://192.168.1.100:8000/payment_methods/";
+    const dataToPost = {
+      // Your data object to post
+      card_expiry: "12122100",
+      card_number: "6787",
+      payment_id: 9,
+      user_id: 1,
+    };
+
+    try {
+      const responseData = await postData(apiUrl, dataToPost);
+      setResponse(JSON.stringify(responseData));
+    } catch (error) {
+      // Handle error if needed
+    }
+  };
+
+  useEffect(() => {
+    const fetchAndSetData = async () => {
+      const apiUrl = "http://192.168.1.100:8000/payment_methods/";
+      try {
+        const fetchedData = await getData(apiUrl);
+        console.log(fetchedData);
+        setData(fetchedData);
+      } catch (error) {
+        // Handle error if needed
+      }
+    };
+
+    fetchAndSetData();
+  }, []);
+
+  console.log(data);
+
+  const Tab = createBottomTabNavigator();
+
   return (
     // <BookingDetailsScreen
     //   ship={"StarShip"}
@@ -28,9 +74,18 @@ const Home = () => {
     // />
     // <HomeScreen />
     // <Button onPress={() => console.log("daw")}>
-    //   <Text>hehe</Text>
+    // <View>
+    //   <Button title="Post Data" onPress={handlePost} />
+    //   <Text>{response}</Text>
+    // </View>
+    <BookingChat />
     // </Button>
-    <WelcomeScreen />
+    // <Payment />
+    // <SlideComponent />
+    // <Tab.Navigator screenOptions={{ headerShown: false }}>
+    //   <Tab.Screen name="Home" component={HomeScreen} />
+    //   <Tab.Screen name="Settings" component={BookingChat} />
+    // </Tab.Navigator>
   );
 };
 
