@@ -9,11 +9,14 @@ import CityCard from "./Components/CityCard";
 import CitySelectScreen from "./Screens/CitySelectScreen";
 import CityList from "./Components/CityList";
 import ProfileScreen from "./Screens/ProfileScreen";
+import PaymentPage from "./Components/PaymentPage";
+import PaymentMethodSelectionScreen from "./Screens/PaymentMethodSelectionScreen";
+import PaymentConfirmationScreen from "./Screens/PaymentConfirmationScreen";
 
 const Home = () => {
   return (
     <>
-      <ProfileScreen />
+      <PaymentPage />
     </>
   );
 };
