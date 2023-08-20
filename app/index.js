@@ -14,6 +14,7 @@ import DetailList from "./Components/flat-list";
 import homeData from "./Config/homeData";
 import BookingDetails from "./Screens/BookingDetails";
 import BookingChat from "./Screens/BookingChat";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const Home = () => {
   return (
@@ -25,7 +26,11 @@ const Home = () => {
     //   from="earth"
     //   to="mars"
     // />
-    <BookingChat />
+    // <HomeScreen />
+    // <Button onPress={() => console.log("daw")}>
+    //   <Text>hehe</Text>
+    // </Button>
+    <WelcomeScreen />
   );
 };
 

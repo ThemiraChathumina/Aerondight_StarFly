@@ -1,13 +1,13 @@
 import React from "react";
 import { Pressable, Text, StyleSheet } from "react-native";
-import { TouchableOpacity } from "react-native-gesture-handler";
 import colors from "../Config/colors";
 import useRGB from "../hooks/useRGB";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 const Button = ({ children, onPress }) => {
   return (
     <TouchableOpacity onPress={onPress}>
-      <Pressable style={styles.btnStyle}>
+      <Pressable style={styles.btnStyle} onPress={onPress}>
         <Text style={styles.textStyle}>{children}</Text>
       </Pressable>
     </TouchableOpacity>

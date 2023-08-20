@@ -41,7 +41,7 @@ const BookingDetails = () => {
           />
         </View>
         <View style={{ marginTop: 270 }}>
-          <TouchableOpacity onPress={handlePress}>
+          <Pressable onPress={handlePress}>
             <View
               style={{
                 backgroundColor: colors.lightPink,
@@ -53,7 +53,7 @@ const BookingDetails = () => {
                 New Booking
               </Text>
             </View>
-          </TouchableOpacity>
+          </Pressable>
         </View>
       </View>
     </ImageBackground>
