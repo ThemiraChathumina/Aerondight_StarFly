@@ -4,7 +4,7 @@ import BookingListItem from "./BookingListItem";
 import colors from "../Config/colors";
 import useRGB from "./../hooks/useRGB";
 
-const getColor = (bookedBefore, bookedAfter, number) => {
+const getColor = (bookedBefore =[], bookedAfter, number) => {
   const color = useRGB(colors.backgroundDark1, 0.6);
 
   if (bookedBefore.includes(number)) {

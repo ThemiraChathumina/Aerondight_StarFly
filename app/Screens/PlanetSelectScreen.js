@@ -5,10 +5,10 @@ import PlanetList from "../Components/PlanetList";
 import colors from "../Config/colors";
 import useRGB from "../hooks/useRGB";
 
-const PlanetSelectScreen = () => {
+const PlanetSelectScreen = ({ onPress }) => {
   return (
     <View style={styles.container}>
-      <PlanetList />
+      <PlanetList onPress={onPress} />
     </View>
   );
 };

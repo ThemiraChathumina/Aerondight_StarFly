@@ -12,10 +12,17 @@ import BookingDetailsItem from "../Components/BookingDetailsItem";
 import useRGB from "../hooks/useRGB";
 import colors from "../Config/colors";
 import { TouchableOpacity } from "react-native-gesture-handler";
+import { useRouter } from "expo-router";
 
 const data = ["aaaa", "bbbb"];
 
 const BookingDetails = () => {
+  const router = useRouter();
+
+  const handlePress = () => {
+    router.push("/Screens/BookingChat");
+  };
+
   return (
     <ImageBackground source={require("../assets/welcomeBackground.jpg")}>
       <View
@@ -34,7 +41,7 @@ const BookingDetails = () => {
           />
         </View>
         <View style={{ marginTop: 270 }}>
-          <TouchableOpacity>
+          <TouchableOpacity onPress={handlePress}>
             <View
               style={{
                 backgroundColor: colors.lightPink,

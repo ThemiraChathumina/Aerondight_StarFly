@@ -16,7 +16,9 @@ function BookingDetailsScreen({
   date,
   time,
   classType,
+  onChange,
 }) {
+  console.log(ship, company, from, to, stops, date, time);
   return (
     <View style={styles.background}>
       <Image style={styles.image} source={ships[ship].background} />
@@ -80,6 +82,7 @@ function BookingDetailsScreen({
           <BookingListItem
             right={["CHANGE"]}
             bgColor={useRGB(colors.red, 0.3)}
+            onPress={onChange}
           />
         </View>
       </View>

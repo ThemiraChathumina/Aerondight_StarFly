@@ -3,9 +3,9 @@ import { FlatList, StyleSheet, View } from "react-native";
 import CityCard from "./CityCard";
 import cities from "../Config/cities";
 
-const CityList = ({ planet }) => {
+const CityList = ({ planet, onPress }) => {
   const handleCitySelect = (item) => {
-    console.log(item);
+    onPress(item);
   };
 
   const renderCityCard = ({ item }) => (

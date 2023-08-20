@@ -13,6 +13,7 @@ import SlideComponent from "./Components/SlideComponent";
 import DetailList from "./Components/flat-list";
 import homeData from "./Config/homeData";
 import BookingDetails from "./Screens/BookingDetails";
+import BookingChat from "./Screens/BookingChat";
 
 const Home = () => {
   return <WelcomeScreen />;

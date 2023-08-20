@@ -8,7 +8,7 @@ import useRGB from "./../hooks/useRGB";
 import { useState } from "react";
 import SeatRow from "../Components/SeatRow";
 
-function BookingDetailsScreen({ ship, bookedSeats }) {
+function SeatsSelectScreen({ ship, bookedSeats }) {
   const bookedBefore = bookedSeats;
   const [bookedAfter, setBookedAfter] = useState([]);
 
@@ -76,4 +76,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default BookingDetailsScreen;
+export default SeatsSelectScreen;

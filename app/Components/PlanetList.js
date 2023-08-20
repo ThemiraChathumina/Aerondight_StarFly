@@ -15,9 +15,9 @@ const planets = [
   "pluto",
 ];
 
-const PlanetList = () => {
+const PlanetList = ({ onPress }) => {
   const handlePlanetSelect = (planet) => {
-    console.log("Selected planet:", planet);
+    onPress(planet);
   };
 
   const renderPlanetCard = ({ item }) => (

@@ -33,6 +33,14 @@ const Layout = () => {
           headerRight: () => <Menu />,
         }}
       />
+      <Stack.Screen
+        name="Screens/BookingChat"
+        options={{
+          headerTitle: "B O O K I N G",
+          headerLeft: () => <Logo />,
+          headerRight: () => <Menu />,
+        }}
+      />
     </Stack>
   );
 };

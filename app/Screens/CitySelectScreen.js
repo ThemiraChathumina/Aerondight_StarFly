@@ -4,10 +4,10 @@ import CityList from "../Components/CityList";
 import colors from "../Config/colors";
 import useRGB from "../hooks/useRGB";
 
-const CitySelectScreen = ({ planet }) => {
+const CitySelectScreen = ({ planet, onPress }) => {
   return (
     <View style={styles.container}>
-      <CityList planet={planet} />
+      <CityList planet={planet} onPress={onPress} />
     </View>
   );
 };
