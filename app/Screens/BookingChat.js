@@ -781,7 +781,7 @@ const styles3 = StyleSheet.create({
   },
   background: {
     backgroundColor: useRGB(colors.backgroundDark1, 0.5),
-    height: 1500,
+    height: 1800,
   },
 });
 //================================================================================================
@@ -1139,6 +1139,7 @@ const BookingChat = (props) => {
 
   const handleEighthButtonPress = () => {
     setShowNinethButton(true);
+    props.navigation.navigate("BookingDetails");
   };
   const handleNinethButtonPress = () => {};
 
@@ -1477,7 +1478,10 @@ const BookingChat = (props) => {
                       date={flight.date}
                       time={flight.time}
                       onChange={() => setFlightModalVisible(flight)}
-                      onConfirm={() => setFlightModalVisible(false)}
+                      onConfirm={() => {
+                        setFlightModalVisible(false);
+                        setShowSixthButton(true);
+                      }}
                       getClass={setSelected}
                       getSeats={setSeats}
                     />
@@ -1488,7 +1492,7 @@ const BookingChat = (props) => {
                   </Modal>
                 </View>
 
-                {true && (
+                {showSixthButton && (
                   <>
                     <Text></Text>
                     <Text></Text>
@@ -1506,17 +1510,25 @@ const BookingChat = (props) => {
                         <Text style={BoxStyles.leftTextHeader}>
                           Flight Details
                         </Text>
-                        <Text style={BoxStyles.leftText}>Flight Name: </Text>
-                        <Text style={BoxStyles.leftText}>From: </Text>
-                        <Text style={BoxStyles.leftText}>To: </Text>
-                        <Text style={BoxStyles.leftText}>Flight date: </Text>
+                        <Text style={BoxStyles.leftText}>
+                          Flight Name: {flight.ship}
+                        </Text>
+                        <Text style={BoxStyles.leftText}>
+                          From: {flight.from}
+                        </Text>
+                        <Text style={BoxStyles.leftText}>
+                          To: {flight.from}
+                        </Text>
+                        <Text style={BoxStyles.leftText}>
+                          Flight date: {flight.date}
+                        </Text>
                       </View>
                       <View style={BoxStyles.rightSide}>
                         <Text style={BoxStyles.rightTextHeader}>Price</Text>
-                        <Text style={BoxStyles.rightText}>
+                        {/* <Text style={BoxStyles.rightText}>
                           Flight Price : $...{" "}
                         </Text>
-                        <Text style={BoxStyles.rightText}>Tax: .....</Text>
+                        <Text style={BoxStyles.rightText}>Tax: .....</Text> */}
                         <Text style={BoxStyles.rightText}>
                           Total Price: .....
                         </Text>
