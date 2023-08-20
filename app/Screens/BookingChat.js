@@ -236,6 +236,9 @@ const BookingChat = (props) => {
   const [flight, setFlight] = useState({});
   const [isFlightModalVisible, setFlightModalVisible] = useState(false);
 
+  const [selected, setSelected] = useState("1st Class");
+  const [seats, setSeats] = useState([]);
+
   const showDatePicker = () => {
     setDatePickerVisibility(true);
   };
@@ -569,12 +572,14 @@ const BookingChat = (props) => {
                       <DataTable.Row key={index} style={TableStyles.itemrow}>
                         <DataTable.Cell style={TableStyles.column}>
                           {renderNameCell({
+                            bookedSeats: flight.bookedSeats,
                             ship: flight.flightName,
                             company: flight.company,
                             date: flight.dateTime.split(" ")[0],
                             time: flight.dateTime.split(" ")[1],
                             from: startPlanet,
                             to: destinationPlanet,
+                            id: flight.id,
                           })}
                         </DataTable.Cell>
                         <DataTable.Cell style={TableStyles.column}>
@@ -599,6 +604,9 @@ const BookingChat = (props) => {
                       date={flight.date}
                       time={flight.time}
                       onChange={() => setFlightModalVisible(flight)}
+                      onConfirm={() => setFlightModalVisible(false)}
+                      getClass={setSelected}
+                      getSeats={setSeats}
                     />
                     {/* <Text>
                       {flight.ship} {flight.company} {flight.from} {flight.to}{" "}

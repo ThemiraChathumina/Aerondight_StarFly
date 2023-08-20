@@ -4,16 +4,15 @@ import BookingListItem from "./BookingListItem";
 import colors from "../Config/colors";
 import useRGB from "./../hooks/useRGB";
 
-const getColor = (bookedBefore =[], bookedAfter, number) => {
+const getColor = (bookedBefore = [], bookedAfter, number) => {
   const color = useRGB(colors.backgroundDark1, 0.6);
-
   if (bookedBefore.includes(number)) {
     return useRGB(colors.red, 0.6);
   } else if (bookedAfter.includes(number)) {
     return useRGB(colors.blue1, 0.6);
+  } else {
+    return color;
   }
-
-  return color;
 };
 
 function SeatRow({ start, bookedBefore, bookedAfter, onPress }) {

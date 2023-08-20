@@ -16,7 +16,17 @@ import BookingDetails from "./Screens/BookingDetails";
 import BookingChat from "./Screens/BookingChat";
 
 const Home = () => {
-  return <WelcomeScreen />;
+  return (
+    // <BookingDetailsScreen
+    //   ship={"StarShip"}
+    //   company="SpaceX"
+    //   date={"2023-03-03"}
+    //   time="65"
+    //   from="earth"
+    //   to="mars"
+    // />
+    <BookingChat />
+  );
 };
 
 export default Home;

@@ -6,11 +6,14 @@ import colors from "../Config/colors";
 import BookingListItem from "../Components/BookingListItem";
 import useRGB from "./../hooks/useRGB";
 import { useState } from "react";
+import { TouchableOpacity } from "react-native-gesture-handler";
 import SeatRow from "../Components/SeatRow";
 
-function SeatsSelectScreen({ ship, bookedSeats }) {
+function SeatsSelectScreen({ ship, bookedSeats, onConfirm, getSeats }) {
   const bookedBefore = bookedSeats;
   const [bookedAfter, setBookedAfter] = useState([]);
+
+  console.log(bookedBefore);
 
   const handlePress = (number) => {
     if (bookedAfter.includes(number)) {
@@ -48,6 +51,19 @@ function SeatsSelectScreen({ ship, bookedSeats }) {
           Select your seats
         </Text>
         {seatRows}
+        <BookingListItem
+          right={["CONFIRM"]}
+          bgColor={useRGB(colors.red, 0.3)}
+          onPress={() => {
+            onConfirm(false);
+            getSeats(bookedAfter);
+          }}
+        />
+        {/* <TouchableOpacity onPress={() => onConfirm(false)}>
+          <View style={styles.confirmBack}>
+            <Text style={styles.confirm}>C O N F I R M</Text>
+          </View>
+        </TouchableOpacity> */}
       </View>
     </View>
   );
@@ -70,9 +86,21 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     padding: 10,
     position: "absolute",
-    bottom: "7%",
+    bottom: "13%",
     alignItems: "center",
     left: "10%",
+  },
+  confirm: {
+    color: colors.white,
+    fontSize: 20,
+  },
+  confirmBack: {
+    backgroundColor: useRGB(colors.red, 0.3),
+    padding: 10,
+    borderRadius: 30,
+    marginBottom: 5,
+    borderColor: colors.white,
+    borderWidth: 2,
   },
 });
 

@@ -1,13 +1,16 @@
 import React from "react";
-import { View, StyleSheet, Image, Text } from "react-native";
+import { View, StyleSheet, Image, Text, Modal } from "react-native";
 import ShipContainer from "../Components/ShipContainer";
 import ships from "../Config/ships";
 import colors from "../Config/colors";
 import BookingListItem from "../Components/BookingListItem";
 import useRGB from "./../hooks/useRGB";
 import { useState } from "react";
+import SeatsSelectScreen from "./SeatSelectScreen";
 
 function BookingDetailsScreen({
+  id = 1,
+  booked = [0],
   ship,
   company,
   from,
@@ -15,10 +18,29 @@ function BookingDetailsScreen({
   stops,
   date,
   time,
-  classType,
+  getSeats,
+  getClass,
   onChange,
+  onConfirm,
 }) {
-  console.log(ship, company, from, to, stops, date, time);
+  const [selected, setSelected] = useState("1st Class");
+  const [seats, setSeats] = useState([]);
+  const [isVisible, setIsVisible] = useState(false);
+
+  const handleSelect = (item) => {
+    setSelected(item);
+  };
+
+  const handleSeatSelect = (seats) => {
+    setSeats(seats);
+  };
+
+  const handleConfirm = () => {
+    onConfirm(false);
+    getClass(selected);
+    getSeats(seats);
+  };
+
   return (
     <View style={styles.background}>
       <Image style={styles.image} source={ships[ship].background} />
@@ -64,9 +86,25 @@ function BookingDetailsScreen({
           <Text style={{ fontSize: 20, marginBottom: 5, color: colors.white }}>
             Select Class
           </Text>
-          <BookingListItem right={["1st Class", "2nd Class", "3rd Class"]} />
+          <BookingListItem
+            right={["1st Class", "2nd Class", "3rd Class"]}
+            onPress={handleSelect}
+            selected={selected}
+          />
         </View>
-        <BookingListItem left="seat" right={["Select seats"]} />
+        <BookingListItem
+          left="seat"
+          right={["Select seats"]}
+          onSelected={setIsVisible}
+        />
+        <Modal visible={isVisible} animationType="fade">
+          <SeatsSelectScreen
+            ship="StarShip"
+            bookedSeats={[1, 2, 3]}
+            onConfirm={setIsVisible}
+            getSeats={handleSeatSelect}
+          />
+        </Modal>
         <View
           style={{
             flexDirection: "row",
@@ -78,6 +116,7 @@ function BookingDetailsScreen({
           <BookingListItem
             right={["CONFIRM"]}
             bgColor={useRGB(colors.red, 0.3)}
+            onPress={handleConfirm}
           />
           <BookingListItem
             right={["CHANGE"]}
