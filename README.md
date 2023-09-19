@@ -1,7 +1,7 @@
 
 StarFly Interstellar Traveling Agent
 
-<img src="https://github.com/SuwanSankaja/Portfolio/assets/86839778/88187251-7de7-4a54-9124-427ff4cfd429" width="100" height="100">
+<img src="https://github.com/SuwanSankaja/Portfolio/assets/86839778/88187251-7de7-4a54-9124-427ff4cfd429" width="200" height="300" align = "center"S>
 
 DB DUMP IS ALSO IN HERE
 For starting the app,
