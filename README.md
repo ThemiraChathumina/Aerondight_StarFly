@@ -1,5 +1,4 @@
-DB DUMP IS ALSO IN HERE
-
+A spaceflight booking app designed with Figma, Implementing it with React-Native, Django, and MySQL in the competition “Tech Triathlon” organized by RootCode Labs.
 
 For starting the app,
 
@@ -30,4 +29,10 @@ For starting the backend,
 9. python manage.py makemigrations
 10. python manage.py migrate
 11. python manage.py runserver IP:8000
+
+https://github.com/ThemiraChathumina/Aerondight_StarFly/assets/110608712/09b57391-13e8-4290-b17d-529fca498153
+
+
+
+
     
